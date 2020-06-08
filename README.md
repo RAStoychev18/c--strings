@@ -1,1 +1,1 @@
-# c--strings
+# c++-strings
