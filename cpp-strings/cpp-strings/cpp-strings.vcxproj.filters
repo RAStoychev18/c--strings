@@ -37,5 +37,8 @@
     <Text Include="..\..\..\..\..\Desktop\Animals.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="..\..\..\..\..\OneDrive - ПГКПИ - Бургас\C++\food.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
