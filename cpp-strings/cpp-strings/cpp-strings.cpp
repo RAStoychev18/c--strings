@@ -13,4 +13,5 @@ int main() {
     ifstream geo;
     geo.open("Geometry.txt");
     toGenre(geo, geometry);
+    while (Menu(geometry));
 }

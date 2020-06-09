@@ -98,3 +98,38 @@ void checkWord(int index, string word, Genre& genre)
         cout << "\nYou didn't guess any letters" << endl << endl;
     }
 }
+bool Menu(Genre& geometry) {
+
+    //Greetings and the menu options
+    int choice;
+    cout << "----------WELCOME  TO  OUR  PROGRAM---------- " << endl;
+    cout << endl;
+    cout << "Choose the topic:" << endl;
+    cout << "1.Geometry" << endl;
+    cout << "4.Quit" << endl;
+    cout << "Enter your choice:";
+    cin >> choice;
+    if (choice != 1 && choice != 4) {
+        cout << "There is no such option here! Bye for now!";
+    }
+    else {
+        //this is the case for the menu options
+        switch (choice) {
+            case 1:
+                for (int i = 0; i < geometry.words.size(); i++)
+                {
+                    cout << i + 1 << ". " << geometry.words[i].description << "\n    " << "| " << geometry.words[i].copWord << " | \n" << endl;
+
+                }
+                return true;
+            case 4:
+                cout << "Bye for now!" << endl;
+                return false;
+
+            default:
+                break;
+        }
+    }
+    //stops the main menu from repeating
+    return false;
+}
