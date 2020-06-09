@@ -146,6 +146,8 @@
     <ClInclude Include="Structures.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="..\..\..\..\..\Desktop\Animals.txt" />
+    <Text Include="..\..\..\..\..\Desktop\Means of transport.txt" />
     <Text Include="..\..\..\..\..\Documents\ThemesProject\Geometry.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

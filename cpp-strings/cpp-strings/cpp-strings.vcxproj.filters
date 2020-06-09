@@ -31,5 +31,11 @@
     <Text Include="..\..\..\..\..\Documents\ThemesProject\Geometry.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="..\..\..\..\..\Desktop\Means of transport.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\..\..\..\..\Desktop\Animals.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
