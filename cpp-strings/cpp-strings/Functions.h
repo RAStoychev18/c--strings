@@ -102,35 +102,34 @@ void checkWord(int index, string word, Genre& genre)
         cout << "\nYou didn't guess any letters" << endl << endl;
     }
 }
-
 void printTopicWords(Genre& topic)
 {
     string dis = "DESCRIPTION", woord = "WORDS";
-    string piecedis,piecewrd;
-    bool doneids,donewr,printed;
+    string piecedis, piecewrd;
+    bool doneids, donewr, printed;
     for (int i = 0; i < 65; i++)
     {
         cout << "-";
     }
     cout << endl;
-    for (int i = 0; i <65 ; i++)
+    for (int i = 0; i < 65; i++)
     {
-    
-        if (i == 0 || i == 0+5 || i == 45+5 || i == 59+5)
+
+        if (i == 0 || i == 0 + 5 || i == 45 + 5 || i == 59 + 5)
         {
             cout << "|";
         }
         else if (i == 2)
         {
-            cout << "i";
+            cout << "0";
         }
-        else if (i - 47-5 >= 0 &&  i-47-5 < woord.size())
+        else if (i - 47 - 5 >= 0 && i - 47 - 5 < woord.size())
         {
-            cout << woord[i - 47-5];
+            cout << woord[i - 47 - 5];
         }
-        else if (i - 2-5 >= 0 && i-2-5<dis.size())
+        else if (i - 2 - 5 >= 0 && i - 2 - 5 < dis.size())
         {
-            cout << dis[i - 2-5];
+            cout << dis[i - 2 - 5];
         }
         else cout << " ";
     }
@@ -151,7 +150,7 @@ void printTopicWords(Genre& topic)
         {
             for (int i = 0; i < 65; i++)
             {
-                if (i==0||i == 0+5 || i == 45+5 || i == 59+5)
+                if (i == 0 || i == 0 + 5 || i == 45 + 5 || i == 59 + 5)
                 {
                     cout << "|";
                 }
@@ -161,11 +160,11 @@ void printTopicWords(Genre& topic)
 
                     printed = true;
                 }
-                else if (i == 1 ||i== 4 ||i == 1+5 || i == 44+5 || i == 46+5 || i == 58+5)
+                else if (i == 1 || i == 4 || i == 1 + 5 || i == 44 + 5 || i == 46 + 5 || i == 58 + 5)
                 {
                     cout << " ";
                 }
-                else if (i <= 57+5 && i >= 47+5 && i - 47-5 < topic.words[m].copWord.size())
+                else if (i <= 57 + 5 && i >= 47 + 5 && i - 47 - 5 < topic.words[m].copWord.size())
                 {
                     cout << piecewrd[0];
                     if (!donewr)
@@ -173,7 +172,7 @@ void printTopicWords(Genre& topic)
                         piecewrd.erase(0, 1);
                     }
                 }
-                else if (i >= 2+5 && i <= 43+5 && i - 2 -5 < topic.words[m].description.size())
+                else if (i >= 2 + 5 && i <= 43 + 5 && i - 2 - 5 < topic.words[m].description.size())
                 {
                     cout << piecedis[0];
                     if (!doneids)
@@ -209,7 +208,9 @@ void printTopicWords(Genre& topic)
     }
     cout << endl;
 }
+void insertWord(Genre& topic) {
 
+}
 bool Menu(Genre& geometry) {
 
     //Greetings and the menu options
@@ -218,7 +219,11 @@ bool Menu(Genre& geometry) {
     cout << endl;
     cout << "Choose the topic:" << endl;
     cout << "1.Geometry" << endl;
-    cout << "4.Quit" << endl;
+    cout << "2.Animals" << endl;
+    cout << "3.Means of transport" << endl;
+    cout << "4.Food" << endl;
+    cout << "5.Sports and games" << endl;
+    cout << "6.Quit" << endl;
     cout << "Enter your choice:";
     cin >> choice;
     if (choice != 1 && choice != 4) {
@@ -228,13 +233,26 @@ bool Menu(Genre& geometry) {
         //this is the case for the menu options
         switch (choice) {
             case 1:
-                for (int i = 0; i < geometry.words.size(); i++)
-                {
-                    cout << i + 1 << ". " << geometry.words[i].description << "\n    " << "| " << geometry.words[i].copWord << " | \n" << endl;
-
-                }
+                printTopicWords(geometry);
+                insertWord(geometry);
+                return true;
+            case 2:
+                printTopicWords(geometry);
+                insertWord(geometry);
+                return true;
+            case 3:
+                printTopicWords(geometry);
+                insertWord(geometry);
                 return true;
             case 4:
+                printTopicWords(geometry);
+                insertWord(geometry);
+                return true;
+            case 5:
+                printTopicWords(geometry);
+                insertWord(geometry);
+                return true;
+            case 6:
                 cout << "Bye for now!" << endl;
                 return false;
 
@@ -245,3 +263,5 @@ bool Menu(Genre& geometry) {
     //stops the main menu from repeating
     return false;
 }
+
+
