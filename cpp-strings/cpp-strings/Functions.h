@@ -107,31 +107,35 @@ void printTopicWords(Genre& topic)
 {
     string dis = "DESCRIPTION", woord = "WORDS";
     string piecedis,piecewrd;
-    bool doneids,donewr;
-    for (int i = 0; i < 60; i++)
+    bool doneids,donewr,printed;
+    for (int i = 0; i < 65; i++)
     {
         cout << "-";
     }
     cout << endl;
-    for (int i = 0; i <60 ; i++)
+    for (int i = 0; i <65 ; i++)
     {
     
-        if (i == 0 || i == 45 || i == 59)
+        if (i == 0 || i == 0+5 || i == 45+5 || i == 59+5)
         {
             cout << "|";
         }
-        else if (i - 47 >= 0 &&  i-47 < woord.size())
+        else if (i == 2)
         {
-            cout << woord[i - 47];
+            cout << "i";
         }
-        else if (i - 2 >= 0 && i-2 <dis.size())
+        else if (i - 47-5 >= 0 &&  i-47-5 < woord.size())
         {
-            cout << dis[i - 2];
+            cout << woord[i - 47-5];
+        }
+        else if (i - 2-5 >= 0 && i-2-5<dis.size())
+        {
+            cout << dis[i - 2-5];
         }
         else cout << " ";
     }
     cout << endl;
-    for (int i = 0; i < 60; i++)
+    for (int i = 0; i < 65; i++)
     {
         cout << "-";
     }
@@ -142,19 +146,26 @@ void printTopicWords(Genre& topic)
         piecedis = topic.words[m].description;
         doneids = false;
         donewr = false;
+        printed = false;
         while (!doneids || !donewr)
         {
-            for (int i = 0; i < 60; i++)
+            for (int i = 0; i < 65; i++)
             {
-                if (i == 0 || i == 45 || i == 59)
+                if (i==0||i == 0+5 || i == 45+5 || i == 59+5)
                 {
                     cout << "|";
                 }
-                else if (i == 1 || i == 44 || i == 46 || i == 58)
+                else if (!printed && i == 2)
+                {
+                    cout << m + 1;
+
+                    printed = true;
+                }
+                else if (i == 1 ||i== 4 ||i == 1+5 || i == 44+5 || i == 46+5 || i == 58+5)
                 {
                     cout << " ";
                 }
-                else if (i <= 57 && i >= 47 && i - 47 < topic.words[m].copWord.size())
+                else if (i <= 57+5 && i >= 47+5 && i - 47-5 < topic.words[m].copWord.size())
                 {
                     cout << piecewrd[0];
                     if (!donewr)
@@ -162,7 +173,7 @@ void printTopicWords(Genre& topic)
                         piecewrd.erase(0, 1);
                     }
                 }
-                else if (i >= 2 && i <= 43 && i - 2 < topic.words[m].description.size())
+                else if (i >= 2+5 && i <= 43+5 && i - 2 -5 < topic.words[m].description.size())
                 {
                     cout << piecedis[0];
                     if (!doneids)
@@ -190,7 +201,7 @@ void printTopicWords(Genre& topic)
             }
             cout << endl;
         }
-        for (int i = 0; i < 60; i++)
+        for (int i = 0; i < 65; i++)
         {
             cout << "-";
         }
