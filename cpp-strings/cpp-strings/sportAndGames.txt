@@ -1,0 +1,9 @@
+track: a piece of ground that is used for running or racing
+score: to get a point in a game or sport
+final: the last game, race, etc in a compeition, that decides who wins the competition
+rod: a long thin bar or stick made of metal, plastic or wood
+pitch: a flat area of ground that is used for playing sports on
+stick: a long thin piece of wood that is used for hitting or carrying something in a sport
+game: an activity that you take part in for fun, usually one that has rules
+competitor: someone who takes part in a competition
+opponent: someone who is competing against you
