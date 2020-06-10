@@ -1,0 +1,12 @@
+car:4-wheeled motor vehicle. Many families own one to go places.
+van:a truck with an enclosed cargo space
+plane:an aircraft that travels the air at very high speeds.
+coach:a vehicle carrying many passengers
+bus:It takes a lot of people to school, to work and around town.
+helicopter:A type of aircraft that carries a few people in the air.
+ferry:a boat that carries people and goods across the water. It travels quite slowly.
+scooter:It has two wheels, only carries one person and has a very small engine.
+lorry:a large truck designed to carry heavy loads
+bicycle:a wheeled vehicle that has two wheels and is moved by foot pedals.
+motorbike:a vehicle with two wheels and an engine.
+train:It runs on rails and has several carriages.

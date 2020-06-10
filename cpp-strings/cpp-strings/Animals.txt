@@ -1,0 +1,13 @@
+monkey:a wild animal that can climb trees fast and easily
+leopard:A large spotted animal in the cat family.
+duck:An animal can swim and says "Quack! Quack!".
+crocodile:An animal can snap and has a long mouth.
+peacock:The animal with hundreds of "eyes"
+ant:a small insect that lives in large groups
+elephant:a very large grey animal with four legs, two tusks
+rabbit:a small animal with long ears and soft fur
+deer:a large wild animal that can run very fast, eats grass, and has horns
+cat:a small animal with four legs that people often keep as a pet.
+goat:an animal that has horns on top of its head and long hair under its chin, and can climb steep hills and rocks.
+
+
