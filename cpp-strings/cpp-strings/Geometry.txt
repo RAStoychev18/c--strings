@@ -1,0 +1,8 @@
+Line:the set of all points collinear to two points
+Segment:two end points and all the points in between them
+Plane:a flat figure with no thickness that extends indefinitely in all directions
+Ray:is a line with a single endpoint (or point of origin) that extends infinitely in one direction.
+Acute:angle whose measure is less than 90
+Vertex:point in common of two rays that form an angle
+Midpoint:the middle point of the line segment
+Obtuse:an angle whose measure is greater than 90 and less than 180

@@ -116,10 +116,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -144,13 +146,6 @@
   <ItemGroup>
     <ClInclude Include="Functions.h" />
     <ClInclude Include="Structures.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="..\..\..\..\..\Desktop\Animals.txt" />
-    <Text Include="..\..\..\..\..\Desktop\Means of transport.txt" />
-    <Text Include="..\..\..\..\..\Documents\ThemesProject\Geometry.txt" />
-    <Text Include="..\..\..\..\..\OneDrive - ПГКПИ - Бургас\C++\food.txt" />
-    <Text Include="..\..\..\..\..\OneDrive - ПГКПИ - Бургас\C++\sportAndGames.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

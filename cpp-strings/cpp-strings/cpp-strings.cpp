@@ -12,6 +12,10 @@ int main() {
     Genre geometry;
     ifstream geo;
     geo.open("Geometry.txt");
+    if (!geo.is_open())
+    {
+        cout << "fail";
+    }
     toGenre(geo, geometry);
     while (Menu(geometry));
 }

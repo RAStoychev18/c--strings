@@ -38,7 +38,11 @@ void scrambleWord(string original, string& word)
 }
 bool toGenre(ifstream& file, Genre& genre)
 {
-    if (!file.is_open())return false;
+    if (!file.is_open())
+    {
+        return false;
+    }
+
 
     string line;
 
