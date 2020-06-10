@@ -1,0 +1,11 @@
+bake: to cook food such as bread and cakes in the oven
+slice: to cut something into flat pieces
+cook: someone who cooks food, either as their job or for pleasure
+hob: the top part f a cooker that you put pans on
+lunch: a meal that you eat in the middle of the day
+plate: a flat round dish that you put food on
+vegetarian: someone who chooses not to eat meat or fish
+menu: a list of the food that is available in a resturant
+takeaway: a meal that you buy in a restaurant and take home to eat
+kettle: a container that is used for boiling water
+cuisine: a particular style of cooking
