@@ -209,7 +209,13 @@ void printTopicWords(Genre& topic)
     cout << endl;
 }
 void insertWord(Genre& topic) {
-
+    string word;
+    int index;
+    cout << "Enter the number of your word" << endl;
+    cin >> index;
+    cout << "Enter the word" << endl;
+    cin >> word;
+    checkWord(index, word, topic);
 }
 bool Menu(Genre& geometry) {
 
