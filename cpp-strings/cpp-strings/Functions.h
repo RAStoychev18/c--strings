@@ -102,6 +102,103 @@ void checkWord(int index, string word, Genre& genre)
         cout << "\nYou didn't guess any letters" << endl << endl;
     }
 }
+
+void printTopicWords(Genre& topic)
+{
+    string dis = "DESCRIPTION", woord = "WORDS";
+    string piecedis,piecewrd;
+    bool doneids,donewr;
+    for (int i = 0; i < 60; i++)
+    {
+        cout << "-";
+    }
+    cout << endl;
+    for (int i = 0; i <60 ; i++)
+    {
+    
+        if (i == 0 || i == 45 || i == 59)
+        {
+            cout << "|";
+        }
+        else if (i - 47 >= 0 &&  i-47 < woord.size())
+        {
+            cout << woord[i - 47];
+        }
+        else if (i - 2 >= 0 && i-2 <dis.size())
+        {
+            cout << dis[i - 2];
+        }
+        else cout << " ";
+    }
+    cout << endl;
+    for (int i = 0; i < 60; i++)
+    {
+        cout << "-";
+    }
+    cout << endl;
+    for (int m = 0; m < topic.words.size(); m++)
+    {
+        piecewrd = topic.words[m].copWord;
+        piecedis = topic.words[m].description;
+        doneids = false;
+        donewr = false;
+        while (!doneids || !donewr)
+        {
+            for (int i = 0; i < 60; i++)
+            {
+                if (i == 0 || i == 45 || i == 59)
+                {
+                    cout << "|";
+                }
+                else if (i == 1 || i == 44 || i == 46 || i == 58)
+                {
+                    cout << " ";
+                }
+                else if (i <= 57 && i >= 47 && i - 47 < topic.words[m].copWord.size())
+                {
+                    cout << piecewrd[0];
+                    if (!donewr)
+                    {
+                        piecewrd.erase(0, 1);
+                    }
+                }
+                else if (i >= 2 && i <= 43 && i - 2 < topic.words[m].description.size())
+                {
+                    cout << piecedis[0];
+                    if (!doneids)
+                    {
+                        piecedis.erase(0, 1);
+                    }
+                }
+                else
+                {
+                    cout << " ";
+                }
+
+
+                if (piecewrd.empty() && !donewr)
+                {
+                    donewr = true;
+                    piecewrd = " ";
+                }
+
+                if (piecedis.empty() && !doneids)
+                {
+                    doneids = true;
+                    piecedis = " ";
+                }
+            }
+            cout << endl;
+        }
+        for (int i = 0; i < 60; i++)
+        {
+            cout << "-";
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
 bool Menu(Genre& geometry) {
 
     //Greetings and the menu options

@@ -17,5 +17,6 @@ int main() {
         cout << "fail";
     }
     toGenre(geo, geometry);
-    while (Menu(geometry));
+    printTopicWords(geometry);
+
 }
