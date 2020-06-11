@@ -12,6 +12,15 @@ int randomInt(int minimum, int maximum)
     return rand() % (maximum - minimum + 1) + minimum;
 }
 
+void SetupFiles(ifstream& geo, ifstream& ani, ifstream& fod, ifstream& trans, ifstream& sport, Genre& geometry, Genre& animals, Genre& food, Genre& transport, Genre& sports)
+{
+    toGenre(geo, geometry);
+    toGenre(ani, animals);
+    toGenre(fod, food);
+    toGenre(trans, transport);
+    toGenre(sport, sports);
+}
+
 void scrambleWord(string original, string& word)
 {
     int rand;
