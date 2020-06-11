@@ -69,7 +69,7 @@ void SetupFiles(ifstream& geo, ifstream& ani, ifstream& fod, ifstream& trans, if
     ani.open("Animals.txt");
     fod.open("food.txt");
     trans.open("Means of transport.txt");
-    sport.open("sportsAndGames.txt");
+    sport.open("sportAndGames.txt");
     toGenre(geo, geometry);
     toGenre(ani, animals);
     toGenre(fod, food);
@@ -121,7 +121,7 @@ void printTopicWords(Genre& topic)
 {
     string dis = "DESCRIPTION", woord = "WORDS";
     string piecedis, piecewrd;
-    bool doneids, donewr, printed;
+    bool doneids, donewr, printed,printTen;
     for (int i = 0; i < 65; i++)
     {
         cout << "-";
@@ -161,6 +161,7 @@ void printTopicWords(Genre& topic)
         doneids = false;
         donewr = false;
         printed = false;
+        printTen = false;
         while (!doneids || !donewr)
         {
             for (int i = 0; i < 65; i++)
@@ -177,7 +178,14 @@ void printTopicWords(Genre& topic)
                 }
                 else if (i == 1 || i == 4 || i == 1 + 5 || i == 44 + 5 || i == 46 + 5 || i == 58 + 5)
                 {
-                    cout << " ";
+                    if (!printTen && i == 4 && m + 1 >= 10)
+                    {
+                        printTen = true;
+                    }
+                    else
+                    {
+                        cout << " ";
+                    }
                 }
                 else if (i <= 57 + 5 && i >= 47 + 5 && i - 47 - 5 < topic.words[m].copWord.size())
                 {
