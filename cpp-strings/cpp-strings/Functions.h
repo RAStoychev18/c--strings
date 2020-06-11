@@ -12,15 +12,6 @@ int randomInt(int minimum, int maximum)
     return rand() % (maximum - minimum + 1) + minimum;
 }
 
-void SetupFiles(ifstream& geo, ifstream& ani, ifstream& fod, ifstream& trans, ifstream& sport, Genre& geometry, Genre& animals, Genre& food, Genre& transport, Genre& sports)
-{
-    toGenre(geo, geometry);
-    toGenre(ani, animals);
-    toGenre(fod, food);
-    toGenre(trans, transport);
-    toGenre(sport, sports);
-}
-
 void scrambleWord(string original, string& word)
 {
     int rand;
@@ -71,6 +62,21 @@ bool toGenre(ifstream& file, Genre& genre)
     file.close();
     return true;
 }
+
+void SetupFiles(ifstream& geo, ifstream& ani, ifstream& fod, ifstream& trans, ifstream& sport, Genre& geometry, Genre& animals, Genre& food, Genre& transport, Genre& sports)
+{
+    geo.open("Geometry.txt");
+    ani.open("Animals.txt");
+    fod.open("food.txt");
+    trans.open("Means of transport.txt");
+    sport.open("sportsAndGames.txt");
+    toGenre(geo, geometry);
+    toGenre(ani, animals);
+    toGenre(fod, food);
+    toGenre(trans, transport);
+    toGenre(sport, sports);
+}
+
 void checkWord(int index, string word, Genre& genre)
 {
     if (word.size() != genre.words[index - 1].word.size())
@@ -226,7 +232,7 @@ void insertWord(Genre& topic) {
     cin >> word;
     checkWord(index, word, topic);
 }
-bool Menu(Genre& geometry) {
+bool Menu(Genre& geometry ,Genre& animals, Genre& food, Genre& transport, Genre& sports) {
 
     //Greetings and the menu options
     int choice;
@@ -241,7 +247,7 @@ bool Menu(Genre& geometry) {
     cout << "6.Quit" << endl;
     cout << "Enter your choice:";
     cin >> choice;
-    if (choice != 1 && choice != 4) {
+    if (choice <1 or choice>6 ) {
         cout << "There is no such option here! Bye for now!";
     }
     else {
@@ -252,20 +258,20 @@ bool Menu(Genre& geometry) {
                 insertWord(geometry);
                 return true;
             case 2:
-                printTopicWords(geometry);
-                insertWord(geometry);
+                printTopicWords(animals);
+                insertWord(animals);
                 return true;
             case 3:
-                printTopicWords(geometry);
-                insertWord(geometry);
+                printTopicWords(transport);
+                insertWord(transport);
                 return true;
             case 4:
-                printTopicWords(geometry);
-                insertWord(geometry);
+                printTopicWords(food);
+                insertWord(food);
                 return true;
             case 5:
-                printTopicWords(geometry);
-                insertWord(geometry);
+                printTopicWords(sports);
+                insertWord(sports);
                 return true;
             case 6:
                 cout << "Bye for now!" << endl;
