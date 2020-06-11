@@ -7,16 +7,12 @@
 #include "Structures.h"
 using namespace std;
 
+
 int main() {
     srand(time(NULL));
-    Genre geometry;
-    ifstream geo;
-    geo.open("Geometry.txt");
-    if (!geo.is_open())
-    {
-        cout << "fail";
-    }
-    toGenre(geo, geometry);
-    while (Menu(geometry));
+    Genre geometry, animals, food, transoprt, sportsAndGames;
+    ifstream geo, ani, fod, trans, sport;
+    SetupFiles(geo, ani, fod, trans, sport, geometry, animals, food, transoprt, sportsAndGames);
 
+    while (Menu(geometry));
 }
