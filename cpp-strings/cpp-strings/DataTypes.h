@@ -16,3 +16,13 @@ struct WORDS {
 struct Genre {
     vector<WORDS> words;
 };
+
+enum WORDS_OUTPUT
+{
+    DIFFERENT_LETTER_COUNT,
+    DIFFERENT_LETTERS,
+    GUESSED_WORD,
+    GUESSED_LETTERS,
+    FAILSE_GUESS,
+    ALREADY_GUESSED
+};

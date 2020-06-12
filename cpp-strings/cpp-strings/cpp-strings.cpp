@@ -4,7 +4,7 @@
 #include <string>
 #include <ctime>
 #include "Functions.h"
-#include "Structures.h"
+#include "DataTypes.h"
 using namespace std;
 
 

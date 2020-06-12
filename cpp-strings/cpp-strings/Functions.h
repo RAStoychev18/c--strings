@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include <ctime>
-#include "Structures.h"
+#include "DataTypes.h"
 using namespace std;
 
 int randomInt(int minimum, int maximum)
@@ -52,11 +52,11 @@ bool toGenre(ifstream& file, Genre& genre)
         indexDel = line.find(":");
         if (indexDel != string::npos)
         {
-            WORDS word;
-            word.word = line.substr(0, indexDel);
-            scrambleWord(word.word, word.copWord);
-            word.description = line.substr(indexDel + 1, line.size() - indexDel);
-            genre.words.push_back(word);
+            WORDS fileword;
+            fileword.word = line.substr(0, indexDel);
+            scrambleWord(fileword.word, fileword.copWord);
+            fileword.description = line.substr(indexDel + 1, line.size() - indexDel);
+            genre.words.push_back(fileword);
         }
     }
     file.close();
@@ -77,22 +77,31 @@ void SetupFiles(ifstream& geo, ifstream& ani, ifstream& fod, ifstream& trans, if
     toGenre(sport, sports);
 }
 
-void checkWord(int index, string word, Genre& genre, int& correct)
+WORDS_OUTPUT checkWord(size_t index, string word, Genre& genre, int& correct, int& guessed)
 {
+    bool already=true;
+    for (size_t i = 0; i < genre.words[index - 1].copWord.size();i++)
+    {
+        if (genre.words[index - 1].copWord[i] == '-')
+        {
+            already = false;
+        }
+    }
+    if (already)
+    {
+        return ALREADY_GUESSED;
+    }
     if (word.size() != genre.words[index - 1].word.size())
     {
-        cout << "Look at the letter count";
-        return;
+        return DIFFERENT_LETTER_COUNT;
     }
-    int guessed = 0;
     for (int i = 0; i < word.size(); i++)
     {
         if (word[i] == genre.words[index - 1].word[i])
         {
             if (genre.words[index - 1].copWord[i] != '-' && genre.words[index - 1].copWord[i] != word[i])
             {
-                cout << "\nEnter a word which letters are the same as the example";
-                return;
+                return DIFFERENT_LETTERS;
             }
         }
     }
@@ -106,16 +115,16 @@ void checkWord(int index, string word, Genre& genre, int& correct)
     }
     if (genre.words[index - 1].copWord == genre.words[index - 1].word)
     {
-        cout << "\nCONGRATS you guessed the word: " << genre.words[index - 1].word << endl << endl;
         correct++;
+        return GUESSED_WORD;
     }
     else if (guessed != 0)
     {
-        cout << "\nGOOD JOB you guessed " << guessed << " letters" << endl << endl;
+        return GUESSED_LETTERS;
     }
     else
     {
-        cout << "\nYou didn't guess any letters" << endl << endl;
+        return FAILSE_GUESS;
     }
 }
 void printTopicWords(Genre& topic)
@@ -128,7 +137,7 @@ void printTopicWords(Genre& topic)
         cout << "-";
     }
     cout << endl;
-    for (int i = 0; i < 65; i++)
+    for (size_t i = 0; i < 65; i++)
     {
 
         if (i == 0 || i == 0 + 5 || i == 45 + 5 || i == 59 + 5)
@@ -165,7 +174,7 @@ void printTopicWords(Genre& topic)
         printTen = false;
         while (!doneids || !donewr)
         {
-            for (int i = 0; i < 65; i++)
+            for (size_t i = 0; i < 65; i++)
             {
                 if (i == 0 || i == 0 + 5 || i == 45 + 5 || i == 59 + 5)
                 {
@@ -234,12 +243,37 @@ void printTopicWords(Genre& topic)
 }
 void insertWord(Genre& topic, int& correct) {
     string word;
-    int index;
+    size_t index;
+    int guessed = 0;
     cout << "Enter the number of your word" << endl;
     cin >> index;
     cout << "Enter the word" << endl;
     cin >> word;
-    checkWord(index, word, topic, correct);
+    WORDS_OUTPUT output = checkWord(index, word, topic, correct,guessed);
+    switch (output)
+    {
+    case DIFFERENT_LETTER_COUNT:
+        cout << "\nDifferent letter count" << endl << endl;
+        break;
+    case DIFFERENT_LETTERS:
+        cout << "\nEnter a word which letters are the same as the example" << endl << endl;
+        break;
+    case GUESSED_WORD:
+        cout << "\nCONGRATS you guessed the word: " << topic.words[index - 1].word << endl << endl;
+        break;
+    case GUESSED_LETTERS:
+        cout << "\nGOOD JOB you guessed " << guessed << " letters" << endl << endl;
+        break;
+    case FAILSE_GUESS:
+        cout << "\nYou didn't guess any letters" << endl << endl;
+        break;
+    case ALREADY_GUESSED:
+        cout << "\nThe word is ALREADY guessed" << endl << endl;
+        break;
+    default:
+        break;
+    }
+
 }
 bool Menu(Genre& geometry, Genre& animals, Genre& food, Genre& transport, Genre& sports, int& correct) {
 
