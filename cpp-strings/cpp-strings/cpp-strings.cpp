@@ -13,5 +13,6 @@ int main() {
     Genre geometry, animals, food, transoprt, sportsAndGames;
     ifstream geo, ani, fod, trans, sport;
     SetupFiles(geo, ani, fod, trans, sport, geometry, animals, food, transoprt, sportsAndGames);
-    while (Menu( geometry, animals, food, transoprt, sportsAndGames));
+    int correct = 0;
+    while (Menu(geometry, animals, food, transoprt, sportsAndGames, correct));
 }

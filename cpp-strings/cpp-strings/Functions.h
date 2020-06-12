@@ -77,7 +77,7 @@ void SetupFiles(ifstream& geo, ifstream& ani, ifstream& fod, ifstream& trans, if
     toGenre(sport, sports);
 }
 
-void checkWord(int index, string word, Genre& genre)
+void checkWord(int index, string word, Genre& genre, int& correct)
 {
     if (word.size() != genre.words[index - 1].word.size())
     {
@@ -107,6 +107,7 @@ void checkWord(int index, string word, Genre& genre)
     if (genre.words[index - 1].copWord == genre.words[index - 1].word)
     {
         cout << "\nCONGRATS you guessed the word: " << genre.words[index - 1].word << endl << endl;
+        correct++;
     }
     else if (guessed != 0)
     {
@@ -121,7 +122,7 @@ void printTopicWords(Genre& topic)
 {
     string dis = "DESCRIPTION", woord = "WORDS";
     string piecedis, piecewrd;
-    bool doneids, donewr, printed,printTen;
+    bool doneids, donewr, printed, printTen;
     for (int i = 0; i < 65; i++)
     {
         cout << "-";
@@ -231,16 +232,16 @@ void printTopicWords(Genre& topic)
     }
     cout << endl;
 }
-void insertWord(Genre& topic) {
+void insertWord(Genre& topic, int& correct) {
     string word;
     int index;
     cout << "Enter the number of your word" << endl;
     cin >> index;
     cout << "Enter the word" << endl;
     cin >> word;
-    checkWord(index, word, topic);
+    checkWord(index, word, topic, correct);
 }
-bool Menu(Genre& geometry ,Genre& animals, Genre& food, Genre& transport, Genre& sports) {
+bool Menu(Genre& geometry, Genre& animals, Genre& food, Genre& transport, Genre& sports, int& correct) {
 
     //Greetings and the menu options
     int choice;
@@ -252,41 +253,42 @@ bool Menu(Genre& geometry ,Genre& animals, Genre& food, Genre& transport, Genre&
     cout << "3.Means of transport" << endl;
     cout << "4.Food" << endl;
     cout << "5.Sports and games" << endl;
-    cout << "6.Quit" << endl;
-    cout << "Enter your choice:";
+    cout << "6.Quit" << endl << endl;
+    cout << "Enter your choice:" << endl;
     cin >> choice;
-    if (choice <1 or choice>6 ) {
+    if (choice < 1 or choice>6) {
         cout << "There is no such option here! Bye for now!";
     }
     else {
         //this is the case for the menu options
         switch (choice) {
-            case 1:
-                printTopicWords(geometry);
-                insertWord(geometry);
-                return true;
-            case 2:
-                printTopicWords(animals);
-                insertWord(animals);
-                return true;
-            case 3:
-                printTopicWords(transport);
-                insertWord(transport);
-                return true;
-            case 4:
-                printTopicWords(food);
-                insertWord(food);
-                return true;
-            case 5:
-                printTopicWords(sports);
-                insertWord(sports);
-                return true;
-            case 6:
-                cout << "Bye for now!" << endl;
-                return false;
+        case 1:
+            printTopicWords(geometry);
+            insertWord(geometry, correct);
+            return true;
+        case 2:
+            printTopicWords(animals);
+            insertWord(animals, correct);
+            return true;
+        case 3:
+            printTopicWords(transport);
+            insertWord(transport, correct);
+            return true;
+        case 4:
+            printTopicWords(food);
+            insertWord(food, correct);
+            return true;
+        case 5:
+            printTopicWords(sports);
+            insertWord(sports, correct);
+            return true;
+        case 6:
+            cout << "You have " << correct << " correct answers." << endl;
+            cout << "Bye for now!" << endl;
+            return false;
 
-            default:
-                break;
+        default:
+            break;
         }
     }
     //stops the main menu from repeating
